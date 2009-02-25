@@ -1,0 +1,9 @@
+Order of activities via cron job:
+
+  1. Fetch all feeds and process into Recommendations
+  2. Register new MythTV recording schedules for any recommendations which are < 2 days old,
+     have EPG matches, and which do not have an existing recording schedules
+  3. Check to see if any recordings have been made of previous recommendations
+  4. Cancel recording schedules made by recommendations which have had one recorded program?
+     This should be optional
+  

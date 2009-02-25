@@ -1,0 +1,24 @@
+<h1>Listing recommendations</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Time</th>
+    <th>Channel</th>
+    <th>Assumed match</th>
+  </tr>
+
+<% for recommendation in @recommendations %>
+  <tr>
+    <td><%=h recommendation.title %></td>
+    <td><%=h recommendation.description %></td>
+    <td><%=h recommendation.time %></td>
+    <td><%=h recommendation.channel %></td>
+    <td><%= t = recommendation.program_matches_like; (t.length > 0) ? t[0].title + ":" + t[0].subtitle : "N/A"%>
+    <td><%= link_to 'Show', recommendation %></td>
+    <td><%= link_to 'Edit', edit_recommendation_path(recommendation) %></td>
+    <td><%= link_to 'Destroy', recommendation, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

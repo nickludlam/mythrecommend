@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+# one:
+#   post: 
+#   title: MyString
+#   description: MyString
+#   channel: MyString
+#   time: MyString
+#   active: false
+#   mythtv_recordid: 1
+# 
+# two:
+#   post: 
+#   title: MyString
+#   description: MyString
+#   channel: MyString
+#   time: MyString
+#   active: false
+#   mythtv_recordid: 1

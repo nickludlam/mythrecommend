@@ -1,0 +1,22 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+1:
+  key: "mythtv_hostname"
+  value: "pico"
+  
+2:
+  key: "mythtv_password"
+  value: "4c6UUCJp"
+
+3:
+  key: "mythtv_database"
+  value: "mythconverg"
+  
+4:
+  key: "mythtv_username"
+  value: "mythtv"
+
+5:
+  key: "summary_email_recipient"
+  value: "nick@recoil.org"
+  

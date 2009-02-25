@@ -1,0 +1,51 @@
+This is your mythRecommend update email summary.
+
+<%- unless @recommendations_with_new_schedules.empty? -%>
+The following programs were scheduled to be recorded:
+
+  <% @recommendations_with_new_schedules.each do |rec| %>
+    <%= rec.title %> on <%= rec.channel %>
+    
+    <%= rec.description %>
+  <% end %>
+<%- end -%>
+
+<%- unless @recommendations_with_existing_schedules.empty? -%>
+The following programs were recommended, but have existing schedules:
+
+  <% @recommendations_with_existing_schedules.each do |rec| %>
+    <%= rec.title %> on <%= rec.channel %>
+    
+    <%= rec.description %>
+  <% end %>
+<%- end -%>
+
+<%- unless @recommendation_with_no_matches.empty? -%>
+The following programs were recommended, but no matches could be found:
+
+  <% @recommendation_with_no_matches.each do |rec| %>
+    <%= rec.title %> on <%= rec.channel %>
+    
+    <%= rec.description %>
+  <% end %>
+<%- end -%>
+
+<%- unless @recommendations_awaiting_recording.empty? -%>
+The following programs are scheduled, but have not been recorded yet:
+
+  <% @recommendations_awaiting_recording.each do |rec| %>
+    <%= rec.title %> on <%= rec.channel %>
+    
+    <%= rec.description %>
+  <%- end %>
+<%- end -%>
+
+<%- unless @recommendations_with_recordings.empty? -%>
+The following programs have been recorded and are now dormant:
+
+  <% @recommendations_with_recordings.each do |rec| %>
+    <%= rec.title %> on <%= rec.channel %>
+    
+    <%= rec.description %>
+  <%- end %>
+<%- end -%>

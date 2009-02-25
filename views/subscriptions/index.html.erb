@@ -1,0 +1,23 @@
+<h1>Listing subscriptions</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>URL</th>
+  </tr>
+
+<% for subscription in @subscriptions %>
+  <tr>
+    <td><%=h subscription.name %></td>
+    <td><%=h subscription.url %></td>
+    <td><%= link_to 'Show', subscription %></td>
+    <td><%= link_to 'Edit', edit_subscription_path(subscription) %></td>
+    <td><%= link_to 'Destroy', subscription, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Refresh', url_for(:controller => :subscriptions, :action => :refresh, :id => subscription), :method => :get %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New subscription', new_subscription_path %>

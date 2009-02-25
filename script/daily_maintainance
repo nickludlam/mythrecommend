@@ -1,0 +1,41 @@
+# mythRecommend stuff
+
+Setting.connect_mythtv_database
+
+Subscription.fetch_all
+
+recommendations_with_new_schedules = []
+recommendations_with_existing_schedules = []
+recommendation_with_no_matches = []
+recommendations_with_recordings = []
+recommendations_awaiting_recording = []
+
+Recommendation.unscheduled.recently_published.each do |r|
+  if r.program_matches_like.length > 0
+    if Recommendation.check_existing_schedule(r.program_matches_like.first)
+      recommendations_with_existing_schedules << r
+    else
+      if r.create_recording_schedule
+        recommendations_with_new_schedules << r
+      end
+    end
+  else
+    recommendation_with_no_matches << r
+  end
+end
+
+
+Recommendation.temporary.each do |r|
+  if r.recordings.length > 0
+    r.make_dormant
+    recommendations_with_recordings << r
+  else
+    recommendations_awaiting_recording << r
+  end
+end
+
+Notifications.deliver_summary(recommendations_with_new_schedules,
+                              recommendations_with_existing_schedules,
+                              recommendation_with_no_matches,
+                              recommendations_with_recordings,
+                              recommendations_awaiting_recording)

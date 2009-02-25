@@ -1,0 +1,31 @@
+<h1>mythRecommend settings</h1>
+
+<div>
+  
+  <% form_tag(:action => :index) do %>
+
+  <label for="mythtv_hostname">
+    MythTV hostname:
+    <input type="text" name="mythtv_hostname" value="<%= @settings_map['mythtv_hostname'] %>">
+  </label>
+
+  <label for="mythtv_password">
+    MythTV database password:
+    <input type="password" name="mythtv_password" value="<%= @settings_map['mythtv_password'] %>">
+  </label>
+
+  <label for="mythtv_username">
+    MythTV database username:
+    <input type="text" name="mythtv_username" value="<%= @settings_map['mythtv_username'] %>">
+  </label>
+
+  <label for="mythtv_database">
+    MythTV database name:
+    <input type="text" name="mythtv_database" value="<%= @settings_map['mythtv_database'] %>">
+  </label>
+
+  
+  <p><%= submit_tag "Update" %></p>
+  <% end %>
+  
+</div>

@@ -1,0 +1,34 @@
+<p>
+  <b>Title:</b>
+  <%=h @recommendation.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @recommendation.description %>
+</p>
+
+<p>
+  <b>Channel:</b>
+  <%=h @recommendation.channel %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%=h @recommendation.time %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @recommendation.active %>
+</p>
+
+<p>
+  <b>MythTV recordid:</b>
+  <%=h @recommendation.myth_recordid %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_recommendation_path(@recommendation) %> |
+<%= link_to 'Back', recommendations_path %>
